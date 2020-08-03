@@ -16,5 +16,12 @@ router.post("/create", function(req, res, next) {
     });
 });
 
+router.get("/show", async (req, res) => {
+   
+    const toDoItems = await ToDoItem.find();
+    res.send(toDoItems);
+   
+})
+
 module.exports = router;
 

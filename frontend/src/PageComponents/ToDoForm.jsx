@@ -1,9 +1,6 @@
 import React from "react";
 import Axios from "axios";
 
-import TextInput from "../FormComponents/TextInput";
-import DateInput from "../FormComponents/DateInput";
-import PriorityInput from "../FormComponents/PriorityInput";
 import SubmitButton from "../FormComponents/SubmitButton";
 
 export default class ToDoForm extends React.Component {
@@ -36,17 +33,6 @@ export default class ToDoForm extends React.Component {
             console.log(err);
         })
 
-       /* const newToDoItem = {
-            newToDo : {
-                description : this.state.description,
-                dateToComplete : this.state.dateToComplete,
-                priorityLevel : this.state.priorityLevel,
-                completed: false
-            }
-            
-        } */
-        
-
     }
 
    
@@ -55,11 +41,16 @@ export default class ToDoForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>ToDo Item</label>
-                <input name="description" onChange={this.changeHandler} value={description}/>
+                <input type="text" name="description" onChange={this.changeHandler} value={description}/>
                 <label>Due Date</label>
-                <input name="dateToComplete" onChange={this.changeHandler} value={dateToComplete}/>
+                <input type="date" name="dateToComplete" onChange={this.changeHandler} value={dateToComplete}/>
                 <label>Priority Level</label>
-                <input name="priorityLevel" onChange={this.changeHandler} value={priorityLevel}/>
+                <select type="" name="priorityLevel" onChange={this.changeHandler} value={priorityLevel}>
+                    <option value=""></option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
                 <SubmitButton />
             </form>
         );
