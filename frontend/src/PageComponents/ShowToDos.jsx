@@ -27,7 +27,18 @@ export default class ShowToDos extends React.Component {
     render() {
         return (
             <div>
-                {this.state.todos.map(todo => <p> {todo.description} <br/> {todo.dateToComplete} </p> )}
+                {this.state.todos.map(todo => {
+                    <p> 
+                        {todo.description} 
+                        <br/> 
+                        {todo.dateToComplete} 
+                        <br/> 
+                        {todo.priorityLevel} 
+                        <br/> 
+                        <input  type="checkbox" /> 
+                    </p> })
+                }
+                
             </div>
         )
     }
