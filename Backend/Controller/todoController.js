@@ -21,7 +21,26 @@ router.get("/show", async (req, res) => {
     const toDoItems = await ToDoItem.find();
     res.send(toDoItems);
    
+});
+
+
+
+router.get("/show-false", async (req,res) => {
+    const notCompleted = await ToDoItem.find({completed : "false"});
+    res.send(notCompleted);
+});
+
+router.get("/show-true", async (req,res) => {
+    const completedToDos = await ToDoItem.find({completed : "true"});
+    res.send(completedToDos);
+});
+
+router.patch("/task-done/:id", async (req, res) => {
+    const id = req.params.id;
+    
 })
+
+
 
 module.exports = router;
 

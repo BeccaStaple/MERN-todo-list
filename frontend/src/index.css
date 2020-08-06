@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.heading {
+  margin-top: 20px;
+}
+
+.todo-headers {
+  text-align: center;
+}
+
+.todo-list {
+  display: inline-flex;
+  width: 100%;
+}
+
+
+.todoSection {
+  background-color: #ff847c;
+  margin-left: 10%;
+  margin-right: 2%;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+}
+
+.doneSection {
+  background-color: #a2de96;
+  margin-left: 2%;
+  margin-right: 10%;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+}
+
+
+
+
+/*form*/
+.submitButton {
+  margin: 10px;
+}
+
+.inputLabel {
+  margin: 10px;
+
+}
