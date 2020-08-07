@@ -18,6 +18,7 @@ export default class ShowToDos extends React.Component {
     componentDidMount() {
         Axios.get("http://localhost:4494/todo/show-false").then(res => {
             const todos = res.data;
+            console.log(res.data)
             this.setState({todos});
 
         }
@@ -25,10 +26,11 @@ export default class ShowToDos extends React.Component {
     }
 
     handleChange(event) {
-
-       this.setState({ todos : {completed : event.target.value} });
+        event.preventDefault();
         
-        console.log(this.state);
+        Axios.patch(`http://localhost:4494/todo/task-done/${this.state._id}`).then(res => {
+            console.log(res.data);
+        })
     }
 
     render() {
@@ -40,8 +42,8 @@ export default class ShowToDos extends React.Component {
                     ToDo Item: {todo.description} <br/>
                     Due Date: {todo.dateToComplete} <br/>
                     Priority Level: {todo.priorityLevel} <br/>
-                    Completed: 
-                     <input name="completed" 
+                    <label for="completed"></label>
+                    <input id="completed" name="completed" 
                     onChange={this.handleChange} 
                     value={this.state.todos.completed} 
                     type="checkbox" /></p>)}
