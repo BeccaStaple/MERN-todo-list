@@ -35,8 +35,23 @@ router.get("/show-true", async (req,res) => {
     res.send(completedToDos);
 });
 
-router.patch("/task-done/:id", async (req, res) => {
-    const id = req.params.id;
+router.patch("/task-done/:id", async (req, res, next) => {
+    
+await ToDoItem.findById(req.params.id, {completed : false}, function(err, todo) {
+    if (err) {
+        return next(err);
+    } else {
+        ToDoItem.findOneAndUpdate(req.params.id, {completed: true}, function(err, todo){
+            if (err) {
+                return next(err)
+            } else {
+                res.send(todo);
+            }
+        })
+        
+    }
+    
+})
     
 })
 
